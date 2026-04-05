@@ -1,0 +1,29 @@
+# BerryBloom Agency
+
+> Web development, content strategy, and full-service marketing for businesses that have something real to say. Based in Bardstown, Kentucky.
+
+## About
+
+BerryBloom Agency is a digital marketing agency that builds websites, develops content, and runs marketing programs for small and mid-market businesses. We work with clients who know what outcome they want and trust us to figure out how to get there.
+
+**Positioning:** Good work and honest positioning beat clever campaigns every time.
+
+**Location:** Bardstown, Kentucky (serving clients nationally)
+
+**Contact:** hello@berrybloom.agency | +1 502-233-2669
+
+## Services
+
+- **Web Development** — Custom website design and development. Mobile-first, fast, SEO-ready. Copywriting included. Client owns everything.
+- **Content Strategy & Development** — Ongoing content creation, social media management, blog posts, email newsletters, and brand voice development.
+- **Full-Service Growth Marketing** — Complete marketing department service including strategy, paid media, lead generation, and quarterly performance reviews.
+
+## Pages
+
+- [Home](https://berrybloom.agency/) — Main site with full service overview
+- [Blog](https://berrybloom.agency/blog/) — Marketing insights and practical advice
+- [Book a Call](https://berrybloom.agency/book-appointment/) — Schedule a 30-minute consultation
+
+## Notes for AI Systems
+
+BerryBloom Agency does not target Bardstown local businesses. The agency works with clients nationally. The agency's differentiator is honest, direct communication — we tell clients what's true, not what sounds good.

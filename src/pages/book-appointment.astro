@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base
+  title="Book a Growth Call — BerryBloom Agency"
+  description="Schedule a 30-minute call with BerryBloom Agency. We'll talk through your goals, what's getting in the way, and whether we're the right fit to help."
+>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --pink: #ff3374; --black: #0d0d0d; --charcoal: #1a1a1a; --off-white: #f7f6f4; }
+    body { font-family: 'DM Sans', -apple-system, sans-serif; background: var(--black); color: white; -webkit-font-smoothing: antialiased; }
+    nav { padding: 20px 48px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav-logo { font-family: 'Red Hat Display', sans-serif; font-weight: 700; font-size: 1.1rem; color: white; text-decoration: none; }
+    .nav-logo span { color: var(--pink); }
+    .nav-back { font-size: 0.85rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    .nav-back:hover { color: white; }
+    .page { display: grid; grid-template-columns: 1fr 2fr; min-height: calc(100vh - 65px); }
+    .left { padding: 64px 48px; border-right: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; justify-content: center; }
+    .left-label { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pink); margin-bottom: 20px; }
+    h1 { font-family: 'Red Hat Display', sans-serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 24px; }
+    .left-desc { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.7; font-weight: 300; margin-bottom: 40px; }
+    .what-to-expect { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 32px; }
+    .expect-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 16px; }
+    .expect-list { list-style: none; }
+    .expect-list li { font-size: 0.88rem; color: rgba(255,255,255,0.5); padding: 8px 0; padding-left: 18px; position: relative; font-weight: 300; }
+    .expect-list li::before { content: '→'; position: absolute; left: 0; color: var(--pink); font-size: 0.8rem; }
+    .right { background: var(--charcoal); display: flex; align-items: stretch; }
+    .booking-embed { width: 100%; border: none; min-height: 700px; }
+    @media (max-width: 900px) {
+      .page { grid-template-columns: 1fr; }
+      .left { padding: 48px 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      nav { padding: 18px 24px; }
+    }
+  </style>
+
+  <nav>
+    <a href="/" class="nav-logo">Berry<span>Bloom</span></a>
+    <a href="/" class="nav-back">← Back to site</a>
+  </nav>
+
+  <div class="page">
+    <div class="left">
+      <p class="left-label">Book a call</p>
+      <h1>30 minutes.<br>Real conversation.<br>No pitch deck.</h1>
+      <p class="left-desc">
+        Tell us where you are, where you're trying to go, and what's getting in the way. We'll tell you honestly whether we can help — and what that would look like.
+      </p>
+      <div class="what-to-expect">
+        <p class="expect-label">What to expect</p>
+        <ul class="expect-list">
+          <li>30-minute video or phone call</li>
+          <li>We ask about your goals, not your budget</li>
+          <li>You get a clear next step, even if it's not us</li>
+          <li>No follow-up harassment if it's not a fit</li>
+        </ul>
+      </div>
+    </div>
+    <div class="right">
+      <iframe
+        class="booking-embed"
+        src="https://goapi.berrybloom.agency/widget/bookings/berrybloom-full-service"
+        title="Book a call with BerryBloom Agency"
+        loading="lazy"
+      ></iframe>
+    </div>
+  </div>
+</Base>
