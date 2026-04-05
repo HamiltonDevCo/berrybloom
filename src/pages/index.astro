@@ -1,0 +1,690 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BerryBloom Agency — Real Work. Real Results.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --pink: #ff3374;
+      --pink-light: #ff6699;
+      --pink-dim: rgba(255,51,116,0.12);
+      --black: #0d0d0d;
+      --charcoal: #1a1a1a;
+      --charcoal-mid: #242424;
+      --grey-dark: #333;
+      --grey-mid: #888;
+      --grey-light: #e8e8e8;
+      --off-white: #f7f6f4;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', -apple-system, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s, padding 0.4s, backdrop-filter 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(13,13,13,0.92);
+      backdrop-filter: blur(12px);
+      padding: 16px 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-logo {
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--pink); }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+    .nav-cta {
+      background: var(--pink);
+      color: var(--white) !important;
+      padding: 10px 22px;
+      border-radius: 4px;
+      font-weight: 500 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--pink-light) !important; color: var(--white) !important; }
+
+    .hero {
+      min-height: 100vh;
+      background: var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 48px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg-line {
+      position: absolute;
+      top: 0; right: 0;
+      width: 1px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent, var(--pink), transparent);
+      opacity: 0.3;
+      transform: translateX(-200px);
+    }
+    .hero-bg-dot {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,51,116,0.08) 0%, transparent 70%);
+      top: -100px;
+      right: -100px;
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease forwards 0.1s;
+    }
+    .hero h1 {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: clamp(3rem, 8vw, 7.5rem);
+      font-weight: 900;
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      max-width: 900px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.25s;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--pink);
+      font-weight: 700;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+      max-width: 520px;
+      line-height: 1.65;
+      margin-top: 36px;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.45s;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-top: 48px;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 0.8s ease forwards 0.6s;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--pink);
+      color: var(--white);
+      padding: 16px 34px;
+      border-radius: 4px;
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--pink-light); transform: translateY(-1px); }
+    .btn-ghost {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.88rem;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--white); }
+    .btn-ghost::after { content: '↓'; font-size: 1rem; }
+    .hero-rule {
+      position: absolute;
+      bottom: 48px;
+      left: 48px;
+      right: 48px;
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 1s;
+    }
+    .hero-scroll-label {
+      position: absolute;
+      bottom: 60px;
+      right: 48px;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      opacity: 0;
+      animation: fadeIn 1s ease forwards 1.2s;
+    }
+
+    .ticker {
+      background: var(--pink);
+      padding: 14px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .ticker-track {
+      display: inline-flex;
+      animation: ticker 28s linear infinite;
+    }
+    .ticker-item {
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.7);
+      padding: 0 40px;
+    }
+    .ticker-dot { color: rgba(0,0,0,0.3); padding: 0 4px; }
+
+    section { padding: 100px 48px; }
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 20px;
+    }
+    h2 {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+    .max-w { max-width: 1200px; margin: 0 auto; }
+
+    .services { background: var(--off-white); color: var(--black); }
+    .services h2 { max-width: 600px; margin-bottom: 16px; }
+    .services-intro {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 500px;
+      line-height: 1.65;
+      margin-bottom: 72px;
+      font-weight: 300;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2px;
+      background: var(--grey-light);
+      border: 2px solid var(--grey-light);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .service-card {
+      background: var(--white);
+      padding: 48px 40px;
+      position: relative;
+      transition: background 0.25s;
+      cursor: default;
+    }
+    .service-card:hover { background: var(--black); }
+    .service-card:hover .service-num,
+    .service-card:hover .service-title,
+    .service-card:hover .service-desc,
+    .service-card:hover .service-list li { color: var(--white); }
+    .service-card:hover .service-list li::before { color: var(--pink); }
+    .service-card:hover .service-tag { background: var(--pink-dim); color: var(--pink); }
+    .service-num {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 28px;
+      transition: color 0.25s;
+    }
+    .service-title {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 16px;
+      transition: color 0.25s;
+    }
+    .service-desc {
+      font-size: 0.92rem;
+      color: #666;
+      line-height: 1.65;
+      margin-bottom: 24px;
+      font-weight: 300;
+      transition: color 0.25s;
+    }
+    .service-list { list-style: none; margin-bottom: 32px; }
+    .service-list li {
+      font-size: 0.88rem;
+      color: #555;
+      padding: 6px 0;
+      padding-left: 18px;
+      position: relative;
+      transition: color 0.25s;
+    }
+    .service-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--pink);
+      font-size: 0.8rem;
+    }
+    .service-tag {
+      display: inline-block;
+      background: #f0f0f0;
+      color: #888;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .why { background: var(--charcoal); }
+    .why h2 { max-width: 560px; margin-bottom: 72px; }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 40px;
+    }
+    .why-item { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; }
+    .why-item-num {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--pink);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 16px;
+      opacity: 0.25;
+    }
+    .why-item-title {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+    .why-item-desc {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .process { background: var(--off-white); color: var(--black); }
+    .process h2 { margin-bottom: 64px; max-width: 480px; }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0;
+      position: relative;
+    }
+    .process-step {
+      padding: 40px 40px 40px 0;
+      border-right: 1px solid var(--grey-light);
+      position: relative;
+    }
+    .process-step:last-child { border-right: none; padding-right: 0; }
+    .process-step:not(:first-child) { padding-left: 40px; }
+    .step-num {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--grey-light);
+      letter-spacing: -0.05em;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .step-title {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--black);
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .step-desc { font-size: 0.9rem; color: #666; line-height: 1.7; font-weight: 300; }
+
+    .quote-break {
+      background: var(--black);
+      padding: 80px 48px;
+      text-align: center;
+    }
+    .quote-text {
+      font-family: 'Red Hat Display', sans-serif;
+      font-size: clamp(1.4rem, 3vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.3;
+      max-width: 780px;
+      margin: 0 auto;
+      color: rgba(255,255,255,0.85);
+    }
+    .quote-text em { color: var(--pink); font-style: normal; }
+
+    .cta-section { background: var(--charcoal); padding: 100px 48px; }
+    .cta-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 80px;
+      align-items: center;
+    }
+    .cta-section h2 { font-size: clamp(2rem, 4vw, 3.2rem); max-width: 560px; margin-bottom: 20px; }
+    .cta-sub { font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.65; max-width: 440px; font-weight: 300; }
+    .cta-right { display: flex; flex-direction: column; gap: 16px; align-items: flex-end; min-width: 220px; }
+    .cta-email { font-size: 0.82rem; color: rgba(255,255,255,0.35); letter-spacing: 0.04em; }
+    .cta-email a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
+    .cta-email a:hover { color: var(--pink); }
+
+    footer {
+      background: var(--black);
+      padding: 40px 48px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .footer-logo { font-family: 'Red Hat Display', sans-serif; font-weight: 700; font-size: 1rem; color: var(--white); text-decoration: none; }
+    .footer-logo span { color: var(--pink); }
+    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+    .footer-links { display: flex; gap: 28px; list-style: none; }
+    .footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.4); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      nav.scrolled { padding: 14px 24px; }
+      .nav-links { display: none; }
+      section { padding: 72px 24px; }
+      .hero { padding: 100px 24px 64px; min-height: 100svh; }
+      .hero-rule, .hero-scroll-label { display: none; }
+      .ticker-item { font-size: 0.7rem; padding: 0 28px; }
+      .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+      .cta-right { align-items: flex-start; }
+      footer { padding: 32px 24px; flex-direction: column; align-items: flex-start; }
+      .process-step { border-right: none; border-bottom: 1px solid var(--grey-light); padding: 32px 0; }
+      .process-step:last-child { border-bottom: none; }
+      .process-step:not(:first-child) { padding-left: 0; }
+      .quote-break { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="nav">
+    <a href="#" class="nav-logo">Berry<span>Bloom</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Work</a></li>
+      <li><a href="#why">Why us</a></li>
+      <li><a href="#process">Process</a></li>
+      <li><a href="#contact" class="nav-cta">Let's talk</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-bg-dot"></div>
+    <div class="hero-bg-line"></div>
+    <div class="max-w" style="position:relative;z-index:1;">
+      <p class="hero-eyebrow">BerryBloom Agency · Bardstown, KY</p>
+      <h1>Your brand<br>should say<br><em>something.</em></h1>
+      <p class="hero-sub">
+        We build websites, develop content, and run marketing for businesses that have something real to say. No fluff. No clever-for-clever's-sake. Just work that moves people.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">Start a conversation</a>
+        <a href="#services" class="btn-ghost">See what we do</a>
+      </div>
+    </div>
+    <div class="hero-rule"></div>
+    <span class="hero-scroll-label">Scroll to explore</span>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span class="ticker-item">Web Development</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Content Strategy</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Brand Positioning</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Social Media</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Growth Marketing</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">SEO &amp; Analytics</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Email Campaigns</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Web Development</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Content Strategy</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Brand Positioning</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Social Media</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Growth Marketing</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">SEO &amp; Analytics</span><span class="ticker-dot">·</span>
+      <span class="ticker-item">Email Campaigns</span><span class="ticker-dot">·</span>
+    </div>
+  </div>
+
+  <section class="services" id="services">
+    <div class="max-w">
+      <p class="section-label reveal">What we do</p>
+      <h2 class="reveal reveal-delay-1">Three ways<br>we can work together.</h2>
+      <p class="services-intro reveal reveal-delay-2">Pick where you are. We'll meet you there — and take you further.</p>
+      <div class="service-grid">
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <div class="service-title">Get a website<br>that actually works.</div>
+          <p class="service-desc">You need a site that looks right, loads fast, and tells people exactly what you do. We build them clean and hand them to you ready to run.</p>
+          <ul class="service-list">
+            <li>Custom design, built to your brand</li>
+            <li>Mobile-first, fast, and SEO-ready</li>
+            <li>Copywriting included</li>
+            <li>You own everything</li>
+          </ul>
+          <span class="service-tag">Web Development</span>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">02</div>
+          <div class="service-title">Never run out<br>of things to say.</div>
+          <p class="service-desc">We become your content team — writing, scheduling, and publishing across the channels your customers actually use. Consistent presence without the headache.</p>
+          <ul class="service-list">
+            <li>Social media content &amp; strategy</li>
+            <li>Blog posts and email newsletters</li>
+            <li>Brand voice development</li>
+            <li>Monthly reporting, no guesswork</li>
+          </ul>
+          <span class="service-tag">Content Partner</span>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">03</div>
+          <div class="service-title">Grow faster<br>with a full team behind you.</div>
+          <p class="service-desc">When you're ready to scale, we become your marketing department — strategy, execution, and the accountability that makes it all add up.</p>
+          <ul class="service-list">
+            <li>Full marketing strategy &amp; execution</li>
+            <li>Paid media management</li>
+            <li>Lead generation systems</li>
+            <li>Quarterly reviews &amp; pivots</li>
+          </ul>
+          <span class="service-tag">Growth Partner</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="quote-break">
+    <p class="quote-text reveal">"Good work and honest positioning<br><em>beat clever campaigns every time.</em>"</p>
+  </div>
+
+  <section class="why" id="why">
+    <div class="max-w">
+      <p class="section-label reveal">Why BerryBloom</p>
+      <h2 class="reveal reveal-delay-1">We're not for everyone.<br>We're for you.</h2>
+      <div style="margin-bottom: 64px;"></div>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <div class="why-item-num">01</div>
+          <div class="why-item-title">We tell you what's true, not what sounds good.</div>
+          <p class="why-item-desc">If your positioning is off, we'll say so. If a strategy isn't working, we'll change it. You deserve a partner who respects your time and your money.</p>
+        </div>
+        <div class="why-item reveal reveal-delay-1">
+          <div class="why-item-num">02</div>
+          <div class="why-item-title">We start with your story, not a template.</div>
+          <p class="why-item-desc">Every business has something worth saying. We find it, sharpen it, and make sure the right people hear it — in your voice, not ours.</p>
+        </div>
+        <div class="why-item reveal reveal-delay-2">
+          <div class="why-item-num">03</div>
+          <div class="why-item-title">We build for results, not awards.</div>
+          <p class="why-item-desc">Pretty is good. Pretty that converts is better. We don't make things beautiful at the expense of making them work.</p>
+        </div>
+        <div class="why-item reveal reveal-delay-3">
+          <div class="why-item-num">04</div>
+          <div class="why-item-title">We're local. We think bigger.</div>
+          <p class="why-item-desc">Based in Bardstown, Kentucky. We know this market and the people in it. And we bring that same grounded thinking to clients anywhere.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="max-w">
+      <p class="section-label reveal">How it works</p>
+      <h2 class="reveal reveal-delay-1">No mystery. No runaround.<br>Just how it goes.</h2>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-num">01</div>
+          <div class="step-title">We talk.</div>
+          <p class="step-desc">Tell us where you are, where you're trying to go, and what's getting in the way. No pitch deck. Just a real conversation about what you actually need.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-1">
+          <div class="step-num">02</div>
+          <div class="step-title">We build a plan.</div>
+          <p class="step-desc">We come back with a clear scope, a realistic timeline, and a price. You know exactly what you're getting before anything starts. No surprises.</p>
+        </div>
+        <div class="process-step reveal reveal-delay-2">
+          <div class="step-num">03</div>
+          <div class="step-title">We get to work.</div>
+          <p class="step-desc">You stay informed without being buried. We do the heavy lifting, check in when it matters, and deliver work you're proud to put your name on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="contact">
+    <div class="cta-inner max-w">
+      <div>
+        <p class="section-label reveal">Let's work together</p>
+        <h2 class="reveal reveal-delay-1">You've got something<br>worth saying.<br>Let's make sure<br>people hear it.</h2>
+        <p class="cta-sub reveal reveal-delay-2" style="margin-top:20px;">
+          Whether you need a site, a content partner, or someone to build your whole marketing engine — it starts with a conversation. No commitment, no pitch.
+        </p>
+      </div>
+      <div class="cta-right reveal reveal-delay-2">
+        <a href="mailto:hello@berrybloom.agency" class="btn-primary" style="white-space:nowrap;">Start the conversation</a>
+        <p class="cta-email">or email us at<br><a href="mailto:hello@berrybloom.agency">hello@berrybloom.agency</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <a href="#" class="footer-logo">Berry<span>Bloom</span> Agency</a>
+    <p class="footer-copy">© 2026 BerryBloom Agency · Bardstown, KY</p>
+    <ul class="footer-links">
+      <li><a href="#services">Work</a></li>
+      <li><a href="#why">Why us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
