@@ -764,17 +764,17 @@
       }
     }
 
-    // Set seed frame immediately
-    layerA.style.background = `url(${BASE}${frames[0]}.png) center center / cover no-repeat`;
+    // Set opening frame immediately — blossom on water
+    layerA.style.background = `url(${BASE}${frames[5]}.png) center center / cover no-repeat`;
 
     // Map sections → frames
     const storyMap = [
-      { id: 'home',     frame: 0 }, // Planting the seed
-      { id: 'services', frame: 1 }, // Growth
-      { id: 'quote',    frame: 2 }, // Bloom
-      { id: 'why',      frame: 3 }, // Expand to the wind
-      { id: 'process',  frame: 3 }, // Still wind
-      { id: 'contact',  frame: 4 }, // Petals
+      { id: 'home',     frame: 5 }, // Blossom on water — the destination
+      { id: 'services', frame: 0 }, // Planting the seed
+      { id: 'quote',    frame: 1 }, // Growth
+      { id: 'why',      frame: 2 }, // Bloom
+      { id: 'process',  frame: 3 }, // Expand to the wind
+      { id: 'contact',  frame: 4 }, // Petals flying
     ];
 
     const frameObserver = new IntersectionObserver((entries) => {
