@@ -26,35 +26,20 @@ import Base from '../layouts/Base.astro';
     .expect-list li::before { content: '→'; position: absolute; left: 0; color: var(--pink); font-size: 0.8rem; }
     .right { background: var(--charcoal); display: flex; align-items: stretch; }
     .booking-embed { width: 100%; border: none; min-height: 700px; }
-    .mobile-book {
-      display: none;
-      margin-top: 32px;
-    }
+    .mobile-book { display: none; }
     @media (max-width: 900px) {
       .page { grid-template-columns: 1fr; }
       .left { padding: 48px 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
       nav { padding: 18px 24px; }
-      .right { display: none; }
-      .mobile-book { display: block; }
-    }
-    .mobile-book-btn {
-      display: block;
-      background: var(--pink);
-      color: white;
-      padding: 18px 32px;
-      border-radius: 4px;
-      font-family: 'Red Hat Display', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      text-decoration: none;
-      text-align: center;
-      letter-spacing: 0.01em;
-    }
-    .mobile-book-note {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.35);
-      margin-top: 12px;
-      text-align: center;
+      .right {
+        padding: 24px 16px 48px;
+        background: var(--charcoal);
+      }
+      .booking-embed {
+        width: 100%;
+        min-height: 900px;
+        border-radius: 8px;
+      }
     }
   </style>
 
@@ -78,12 +63,6 @@ import Base from '../layouts/Base.astro';
           <li>You get a clear next step, even if it's not us</li>
           <li>No follow-up harassment if it's not a fit</li>
         </ul>
-      </div>
-      <div class="mobile-book">
-        <a href="https://goapi.berrybloom.agency/widget/bookings/berrybloom-full-service" target="_blank" rel="noopener" class="mobile-book-btn">
-          Pick a time →
-        </a>
-        <p class="mobile-book-note">Opens in your browser</p>
       </div>
     </div>
     <div class="right">
