@@ -68,11 +68,14 @@
       border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .nav-logo {
-      display: flex;
-      align-items: center;
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      color: var(--white);
       text-decoration: none;
     }
-    .nav-logo img { height: 36px; width: auto; display: block; }
+    .nav-logo span { color: var(--pink); }
     .nav-links {
       display: flex;
       gap: 36px;
@@ -493,8 +496,8 @@
       flex-wrap: wrap;
       gap: 20px;
     }
-    .footer-logo { text-decoration: none; display: inline-flex; align-items: center; }
-    .footer-logo img { height: 28px; width: auto; display: block; }
+    .footer-logo { font-family: 'Red Hat Display', sans-serif; font-weight: 700; font-size: 1rem; color: var(--white); text-decoration: none; }
+    .footer-logo span { color: var(--pink); }
     .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.45); }
     .footer-links { display: flex; gap: 28px; list-style: none; }
     .footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
@@ -556,7 +559,7 @@
 <body>
 
   <nav id="nav">
-    <a href="#" class="nav-logo"><img src="https://berrybloom.ewr1.vultrobjects.com/assets/berrybloom-logo-white.png" alt="BerryBloom Agency" /></a>
+    <a href="#" class="nav-logo">Berry<span>Bloom</span></a>
     <ul class="nav-links">
       <li><a href="#services">Work</a></li>
       <li><a href="#why">Why us</a></li>
@@ -727,7 +730,7 @@
   <div class="blossom-close">
     <div class="blossom-close-overlay"></div>
     <footer>
-      <a href="#" class="footer-logo"><img src="https://berrybloom.ewr1.vultrobjects.com/assets/berrybloom-logo-white.png" alt="BerryBloom Agency" /></a>
+      <a href="#" class="footer-logo">Berry<span>Bloom</span> Agency</a>
       <p class="footer-copy">© 2026 BerryBloom Agency<br>Bardstown, KY<br><a href="tel:+15022332669" style="color:inherit;">(502) 233-2669</a></p>
       <ul class="footer-links">
         <li><a href="#services">Work</a></li>
