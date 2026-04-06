@@ -699,9 +699,13 @@
 
   <script>
     const nav = document.getElementById('nav');
+    const heroVideo = document.querySelector('.hero-video');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 40);
-    });
+      if (heroVideo) {
+        heroVideo.style.transform = `translateY(${window.scrollY * 0.4}px)`;
+      }
+    }, { passive: true });
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
