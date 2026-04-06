@@ -475,11 +475,15 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      transition: height 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .blossom-close.expanded {
+      height: 100vh;
     }
     .blossom-close-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(13,13,13,0.1) 0%, rgba(13,13,13,0.55) 100%);
+      background: linear-gradient(to bottom, rgba(13,13,13,0.05) 0%, rgba(13,13,13,0.5) 100%);
     }
     footer {
       position: relative;
@@ -794,6 +798,17 @@
       const el = document.getElementById(id);
       if (el) frameObserver.observe(el);
     });
+
+    // Blossom close — expand to full screen on entry
+    const blossomClose = document.querySelector('.blossom-close');
+    if (blossomClose) {
+      const blossomObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) blossomClose.classList.add('expanded');
+        });
+      }, { threshold: 0.15 });
+      blossomObserver.observe(blossomClose);
+    }
 
     // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal');
