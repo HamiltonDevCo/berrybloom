@@ -26,16 +26,16 @@ import Base from '../layouts/Base.astro';
     .expect-list li::before { content: '→'; position: absolute; left: 0; color: var(--pink); font-size: 0.8rem; }
     .right { background: var(--charcoal); display: flex; align-items: stretch; }
     .booking-embed { width: 100%; border: none; min-height: 700px; }
+    .mobile-book {
+      display: none;
+      margin-top: 32px;
+    }
     @media (max-width: 900px) {
       .page { grid-template-columns: 1fr; }
       .left { padding: 48px 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
       nav { padding: 18px 24px; }
       .right { display: none; }
       .mobile-book { display: block; }
-    }
-    .mobile-book {
-      display: none;
-      margin-top: 32px;
     }
     .mobile-book-btn {
       display: block;
