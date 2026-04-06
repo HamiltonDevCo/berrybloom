@@ -102,7 +102,7 @@
 
     .hero {
       min-height: 100vh;
-      background: var(--black);
+      background: rgba(13,13,13,0.45);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -275,11 +275,11 @@
     }
     .max-w { max-width: 1200px; margin: 0 auto; }
 
-    .services { background: var(--off-white); color: var(--black); }
+    .services { background: rgba(10,10,10,0.82); color: var(--white); }
     .services h2 { max-width: 600px; margin-bottom: 16px; }
     .services-intro {
       font-size: 1.1rem;
-      color: #555;
+      color: rgba(255,255,255,0.5);
       max-width: 500px;
       line-height: 1.65;
       margin-bottom: 72px;
@@ -288,24 +288,20 @@
     .service-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2px;
-      background: var(--grey-light);
-      border: 2px solid var(--grey-light);
+      gap: 1px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.06);
       border-radius: 8px;
       overflow: hidden;
     }
     .service-card {
-      background: var(--white);
+      background: rgba(255,255,255,0.04);
       padding: 48px 40px;
       position: relative;
       transition: background 0.25s;
       cursor: default;
     }
-    .service-card:hover { background: var(--black); }
-    .service-card:hover .service-num,
-    .service-card:hover .service-title,
-    .service-card:hover .service-desc,
-    .service-card:hover .service-list li { color: var(--white); }
+    .service-card:hover { background: rgba(255,51,116,0.1); }
     .service-card:hover .service-list li::before { color: var(--pink); }
     .service-card:hover .service-tag { background: var(--pink-dim); color: var(--pink); }
     .service-num {
@@ -316,7 +312,6 @@
       text-transform: uppercase;
       color: var(--pink);
       margin-bottom: 28px;
-      transition: color 0.25s;
     }
     .service-title {
       font-family: 'Red Hat Display', sans-serif;
@@ -324,26 +319,23 @@
       font-weight: 800;
       letter-spacing: -0.02em;
       line-height: 1.15;
-      color: var(--black);
+      color: var(--white);
       margin-bottom: 16px;
-      transition: color 0.25s;
     }
     .service-desc {
       font-size: 0.92rem;
-      color: #666;
+      color: rgba(255,255,255,0.5);
       line-height: 1.65;
       margin-bottom: 24px;
       font-weight: 300;
-      transition: color 0.25s;
     }
     .service-list { list-style: none; margin-bottom: 32px; }
     .service-list li {
       font-size: 0.88rem;
-      color: #555;
+      color: rgba(255,255,255,0.55);
       padding: 6px 0;
       padding-left: 18px;
       position: relative;
-      transition: color 0.25s;
     }
     .service-list li::before {
       content: '→';
@@ -354,8 +346,8 @@
     }
     .service-tag {
       display: inline-block;
-      background: #f0f0f0;
-      color: #888;
+      background: rgba(255,255,255,0.06);
+      color: rgba(255,255,255,0.4);
       font-size: 0.72rem;
       font-weight: 600;
       letter-spacing: 0.08em;
@@ -365,7 +357,7 @@
       transition: background 0.25s, color 0.25s;
     }
 
-    .why { background: var(--charcoal); }
+    .why { background: rgba(10,10,10,0.82); }
     .why h2 { max-width: 560px; margin-bottom: 72px; }
     .why-grid {
       display: grid;
@@ -397,7 +389,7 @@
       font-weight: 300;
     }
 
-    .process { background: var(--off-white); color: var(--black); }
+    .process { background: rgba(10,10,10,0.82); color: var(--white); }
     .process h2 { margin-bottom: 64px; max-width: 480px; }
     .process-steps {
       display: grid;
@@ -407,7 +399,7 @@
     }
     .process-step {
       padding: 40px 40px 40px 0;
-      border-right: 1px solid var(--grey-light);
+      border-right: 1px solid rgba(255,255,255,0.08);
       position: relative;
     }
     .process-step:last-child { border-right: none; padding-right: 0; }
@@ -416,7 +408,7 @@
       font-family: 'Red Hat Display', sans-serif;
       font-size: 3.5rem;
       font-weight: 900;
-      color: var(--grey-light);
+      color: rgba(255,255,255,0.07);
       letter-spacing: -0.05em;
       line-height: 1;
       margin-bottom: 20px;
@@ -425,14 +417,14 @@
       font-family: 'Red Hat Display', sans-serif;
       font-size: 1.25rem;
       font-weight: 800;
-      color: var(--black);
+      color: var(--white);
       margin-bottom: 12px;
       letter-spacing: -0.02em;
     }
-    .step-desc { font-size: 0.9rem; color: #666; line-height: 1.7; font-weight: 300; }
+    .step-desc { font-size: 0.9rem; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; }
 
     .quote-break {
-      background: var(--black);
+      background: rgba(13,13,13,0.6);
       padding: 80px 48px;
       text-align: center;
     }
@@ -449,25 +441,10 @@
     .quote-text em { color: var(--pink); font-style: normal; }
 
     .cta-section {
-      background: var(--charcoal);
+      background: rgba(10,10,10,0.82);
       padding: 100px 48px;
       position: relative;
       overflow: hidden;
-    }
-    .cta-section::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: url('https://berrybloom.ewr1.vultrobjects.com/assets/blossom-final.png') center center / cover no-repeat;
-      opacity: 0.22;
-      pointer-events: none;
-    }
-    .cta-section::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, rgba(26,26,26,0.6) 0%, rgba(26,26,26,0.3) 60%, rgba(26,26,26,0.7) 100%);
-      pointer-events: none;
     }
     .cta-inner {
       position: relative;
@@ -516,6 +493,22 @@
     .footer-links { display: flex; gap: 28px; list-style: none; }
     .footer-links a { font-size: 0.78rem; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
     .footer-links a:hover { color: var(--white); }
+
+    /* Story canvas */
+    #story-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+    }
+    .canvas-layer {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 1.4s ease;
+    }
+    #canvas-a { opacity: 1; }
+    #canvas-b { opacity: 0; }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(28px); }
@@ -566,12 +559,12 @@
     </ul>
   </nav>
 
+  <div id="story-canvas">
+    <div id="canvas-a" class="canvas-layer"></div>
+    <div id="canvas-b" class="canvas-layer"></div>
+  </div>
+
   <section class="hero" id="home">
-    <video class="hero-video" autoplay muted playsinline preload="auto">
-      <source src="https://berrybloom.ewr1.vultrobjects.com/assets/hero-video.mp4" type="video/mp4" />
-      <source src="https://berrybloom.ewr1.vultrobjects.com/assets/hero-video.webm" type="video/webm" />
-    </video>
-    <div class="hero-video-overlay"></div>
     <div class="hero-bg-dot"></div>
     <div class="hero-bg-line"></div>
     <div class="max-w" style="position:relative;z-index:1;">
@@ -654,7 +647,7 @@
     </div>
   </section>
 
-  <div class="quote-break">
+  <div class="quote-break" id="quote">
     <p class="quote-text reveal">"Good work and honest positioning<br><em>beat clever campaigns every time.</em>"</p>
   </div>
 
@@ -737,24 +730,78 @@
   </div>
 
   <script>
+    // Nav scroll
     const nav = document.getElementById('nav');
-    const heroVideo = document.querySelector('.hero-video');
     window.addEventListener('scroll', () => {
       nav.classList.toggle('scrolled', window.scrollY > 40);
-      if (heroVideo) {
-        heroVideo.style.transform = `translateY(${window.scrollY * 0.4}px)`;
-      }
     }, { passive: true });
+
+    // Story canvas crossfade
+    const BASE = 'https://berrybloom.ewr1.vultrobjects.com/assets/';
+    const frames = ['f1-seed', 'f2-sapling', 'f3-fulltree', 'f4-wind', 'f5-petals', 'blossom-final'];
+    const layerA = document.getElementById('canvas-a');
+    const layerB = document.getElementById('canvas-b');
+    let active = 'a';
+    let currentFrame = -1;
+
+    // Preload all frames
+    frames.forEach(f => { const img = new Image(); img.src = `${BASE}${f}.png`; });
+
+    function setFrame(index) {
+      if (index === currentFrame) return;
+      currentFrame = index;
+      const url = `url(${BASE}${frames[index]}.png) center center / cover no-repeat`;
+      if (active === 'a') {
+        layerB.style.background = url;
+        layerA.style.opacity = '0';
+        layerB.style.opacity = '1';
+        active = 'b';
+      } else {
+        layerA.style.background = url;
+        layerB.style.opacity = '0';
+        layerA.style.opacity = '1';
+        active = 'a';
+      }
+    }
+
+    // Set seed frame immediately
+    layerA.style.background = `url(${BASE}${frames[0]}.png) center center / cover no-repeat`;
+
+    // Map sections → frames
+    const storyMap = [
+      { id: 'home',     frame: 0 }, // Planting the seed
+      { id: 'services', frame: 1 }, // Growth
+      { id: 'quote',    frame: 2 }, // Bloom
+      { id: 'why',      frame: 3 }, // Expand to the wind
+      { id: 'process',  frame: 3 }, // Still wind
+      { id: 'contact',  frame: 4 }, // Petals
+    ];
+
+    const frameObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const match = storyMap.find(m => m.id === entry.target.id);
+          if (match) setFrame(match.frame);
+        }
+      });
+    }, { threshold: 0.25 });
+
+    storyMap.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (el) frameObserver.observe(el);
+    });
+
+    // Reveal on scroll
     const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
+    const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     }, { threshold: 0.12 });
-    reveals.forEach(el => observer.observe(el));
+    reveals.forEach(el => revealObserver.observe(el));
   </script>
 
 </body>
