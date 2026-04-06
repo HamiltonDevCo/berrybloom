@@ -30,6 +30,17 @@ import Base from '../layouts/Base.astro';
       .page { grid-template-columns: 1fr; }
       .left { padding: 48px 24px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); }
       nav { padding: 18px 24px; }
+      .right {
+        display: block;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        min-height: 600px;
+      }
+      .booking-embed {
+        min-height: 800px;
+        height: auto;
+        touch-action: pan-y;
+      }
     }
   </style>
 
@@ -61,6 +72,8 @@ import Base from '../layouts/Base.astro';
         src="https://goapi.berrybloom.agency/widget/bookings/berrybloom-full-service"
         title="Book a call with BerryBloom Agency"
         loading="lazy"
+        scrolling="yes"
+        allow="payment"
       ></iframe>
     </div>
   </div>
