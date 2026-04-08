@@ -13,7 +13,7 @@ export async function GET(context) {
   const postPages = posts
     .filter(p => !p.data.noindex)
     .map(post => ({
-      url: `/${post.data.category}/${post.slug}/`,
+      url: `/${post.data.category}/${post.id}/`,
       priority: '0.6',
       changefreq: 'monthly',
       lastmod: (post.data.updatedDate || post.data.pubDate).toISOString().split('T')[0],
